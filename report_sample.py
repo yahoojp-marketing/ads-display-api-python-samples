@@ -13,8 +13,8 @@ configuration = openapi_client.Configuration()
 # Configure OAuth2 access token for authorization: oAuth
 configuration.access_token = config_ini['DEFAULT']['access_token']
 
-# Defining host is optional and default to https://ads-display.yahooapis.jp/api/v1
-configuration.host = "https://ads-display.yahooapis.jp/api/v1"
+# Defining host is optional and default to https://ads-display.yahooapis.jp/api/v2
+configuration.host = "https://ads-display.yahooapis.jp/api/v2"
 # Enter a context with an instance of the API client
 with openapi_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
@@ -23,7 +23,7 @@ with openapi_client.ApiClient(configuration) as api_client:
 
     # Add
     report_definition = openapi_client.ReportDefinition(
-        date_range_type=openapi_client.ReportDefinitionServiceDateRangeType.YESTERDAY,
+        report_date_range_type=openapi_client.ReportDefinitionServiceReportDateRangeType.YESTERDAY,
         report_name="sample",
         fields=["IMPS","CLICK"],
     )
@@ -49,7 +49,7 @@ with openapi_client.ApiClient(configuration) as api_client:
         api_response = api_instance.report_definition_service_get_post(report_definition_service_selector=report_definition_service_selector)
 
         num = 0
-        while api_response.rval.values[0].report_definition.job_status != openapi_client.ReportDefinitionServiceJobStatus.COMPLETED:
+        while api_response.rval.values[0].report_definition.report_job_status != openapi_client.ReportDefinitionServiceReportJobStatus.COMPLETED:
             time.sleep(1)
             num += 1
             if num >= 100:
