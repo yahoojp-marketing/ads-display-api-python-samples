@@ -50,6 +50,14 @@ python setup.py install --user
 python report_sample.py
 ```
 
+初回実行時は`report_sample.py`に修正が必要です。${VERSION}には任意のバージョンを指定してください。  
+
+```diff
+- configuration.host = "https://ads-search.yahooapis.jp/api/${VERSION}"
++ configuration.host = "https://ads-display.yahooapis.jp/api/vXX"
+```
+
+
 --------------------------------
 ご注意：　Yahoo!広告 ディスプレイ広告 API - サンプルコードの利用に関して
 --------------------------------

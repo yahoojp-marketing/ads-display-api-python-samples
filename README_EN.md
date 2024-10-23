@@ -50,6 +50,13 @@ Example
 python report_sample.py
 ```
 
+On the first execution, modifications to `report_sample.py` are required. Please specify the desired version for `${VERSION}`.  
+
+```diff
+- configuration.host = "https://ads-search.yahooapis.jp/api/${VERSION}"
++ configuration.host = "https://ads-display.yahooapis.jp/api/vXX"
+```
+
 --------------------------------
 NOTICE：　Yahoo! JAPAN Ads Display Ads API - For use of sample code
 --------------------------------
