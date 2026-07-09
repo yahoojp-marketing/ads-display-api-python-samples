@@ -39,7 +39,7 @@ with openapi_client.ApiClient(configuration) as api_client:
     report_definition = ReportDefinition(
         report_date_range_type=ReportDefinitionServiceReportDateRangeType('YESTERDAY'),
         report_name="sample",
-        fields=["IMPS","CLICK"],
+        fields=["IMPS","CLICKS"],
     )
     base_account_id=int(config_ini['DEFAULT']['base_account_id'])
 
